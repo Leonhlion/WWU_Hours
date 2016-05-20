@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <title>Angular Material - Starter App</title>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+        <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css"/>
+
+        <script>
+            var somethingActive = false;
+            var now = new Date();
+            var time = now.getTime() / 1000;  // time now in milliseconds
+            var timeInSeconds;
+            var ticker;
+            var status;
+            var ind;
+            var prevInd = -1;/** */
+
+        </script>
+
+        <link rel="stylesheet" href="assets/app.css"/>
+
+        <style type="text/css">
+            /**
+            * Hide when Angular is not yet loaded and initialized
+            */
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                display: none !important;
+            }
+        </style>
+
+    </head>
+
+    <body ng-app="starterApp" layout="column" ng-controller="LocationController as ul" ng-cloak>
+
+    <md-toolbar layout="row">
+        <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show Location List">
+            <md-icon md-svg-icon="menu" ></md-icon>
+        </md-button>
+        <h1>WWU Hours</h1>
+    </md-toolbar>
+    <div flex layout="row">
+        <md-sidenav   md-component-id="left"  ng-click="ul.toggleList()" md-is-locked-open="$mdMedia('gt-sm')">
+            <md-list>
+                <md-list-item>
+                    <md-button ng-click="showRetail=true; showDining=false; showAcademic=false; showRec=false">Retail</md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button ng-click="showDining=true; showRetail=false; showAcademic=false; showRec=false">Dining</md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button ng-click="showAcademic=true; showRetail=false; showDining=false; showRec=false">Academic</md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button ng-click="showRec=true; showRetail=false; showDining=false; showAcademic=false">Rec Center</md-button>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+
+        <md-content flex >
+            <md-list ng-show="showRetail">
+                <md-list-item ng-repeat="it in ul.location | filter: { category: 'Retail' } as L" >
+                    <md-button id='{{it.abbreviation}}' ng-click="ul.startTimer(it, $index, L.length, 'Retail'); ul.selectLocation(it)" ng-class="{'selected' : it === ul.selected }">
+                        <strong>{{it.name}}</strong>
+                        <p id="timeleftRetail-{{$index}}"> </p>
+                    </md-button>
+                </md-list-item>
+            </md-list>
+            <md-list ng-show="showDining">
+                <md-list-item ng-repeat="iy in ul.location | filter: { category: 'Dining' } as Y" >
+                    <md-button id='{{iy.abbreviation}}' ng-click="ul.startTimer(iy, $index, Y.length, 'Dining'); ul.selectLocation(iy)" ng-class="{'selected' : iy === ul.selected }">
+                        <strong>{{iy.name}}</strong>
+                        <p id="timeleftDining-{{$index}}"> </p>
+                    </md-button>
+                </md-list-item>
+            </md-list>
+           <md-list ng-show="showAcademic">
+                <md-list-item ng-repeat="it in ul.location | filter: { category: 'Academic' }" >
+
+                </md-list-item>
+            </md-list>
+           <md-list ng-show="showRec">
+                <md-list-item ng-repeat="it in ul.location | filter: { category: 'Rec' }" >
+
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </div>
+
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-animate/angular-animate.js"></script>
+    <script src="../node_modules/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
+
+
+    <script src="./src/static/Location.js"></script>
+    <script src="./src/static/LocationController.js"></script>
+    <script src="./src/static/LocationService.js"></script>
+
+    <script type="text/javascript">
+
+          angular
+              .module('starterApp', ['ngMaterial', 'static'])
+              .config(function($mdThemingProvider, $mdIconProvider){
+
+                  $mdIconProvider
+                      .defaultIconSet("./assets/svg/avatars.svg", 128)
+                      .icon("menu"       , "./assets/svg/menu.svg"        , 24)
+                      .icon("share"      , "./assets/svg/share.svg"       , 24)
+                      .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
+                      .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
+                      .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
+                      .icon("phone"      , "./assets/svg/phone.svg"       , 512);
+
+                      $mdThemingProvider.theme('default')
+                          .primaryPalette('indigo')
+                          .accentPalette('grey');
+
+              });
+
+    </script>
+
+    </body>
+</html>
