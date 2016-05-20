@@ -19,7 +19,9 @@
             var ticker;
             var status;
             var ind;
-            var prevInd = -1;/** */
+            var prevInd = -1;
+            showRetail = true;
+            //window.onload = $scope.showRetail;
 
         </script>
 
@@ -44,8 +46,8 @@
         </md-button>
         <h1>WWU Hours</h1>
     </md-toolbar>
-    <div flex layout="row">
-        <md-sidenav   md-component-id="left"  ng-click="ul.toggleList()" md-is-locked-open="$mdMedia('gt-sm')">
+    <div flex layout="row" ng-init="showRetail=true">
+        <md-sidenav md-component-id="left"  ng-click="ul.toggleList()" md-is-locked-open="$mdMedia('gt-sm')">
             <md-list>
                 <md-list-item>
                     <md-button ng-click="showRetail=true; showDining=false; showAcademic=false; showRec=false">Retail</md-button>
@@ -97,7 +99,6 @@
     <script src="../node_modules/angular-aria/angular-aria.js"></script>
     <script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
 
-
     <script src="./src/static/Location.js"></script>
     <script src="./src/static/LocationController.js"></script>
     <script src="./src/static/LocationService.js"></script>
@@ -120,7 +121,6 @@
                       $mdThemingProvider.theme('default')
                           .primaryPalette('indigo')
                           .accentPalette('grey');
-
               });
 
     </script>

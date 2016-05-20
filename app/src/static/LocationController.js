@@ -6,7 +6,7 @@
           'locationService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log',
           LocationController
        ]);
-  
+
   function LocationController( locationService, $mdSidenav, $mdBottomSheet, $timeout, $log ) {
     var self = this;
 
@@ -18,7 +18,7 @@
     self.makeContact  = makeContact;
 
     // Load all registered users
-
+      
     locationService
           .loadAllLocation()
           .then( function( location ) {
