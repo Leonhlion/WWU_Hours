@@ -1,9 +1,9 @@
 html, body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Avener', sans-serif;
   font-size:14px;
   height:100%;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 /* Toolbar area */
@@ -16,13 +16,12 @@ html, body {
   width: 36px;
 }
 
-
 md-toolbar h3 {
   margin: auto;
   font-weight: 500;
 }
 
-/* Sidenav area */
+/* Side nav area */
 
 md-list-item > button {
   width:100%;
@@ -34,7 +33,7 @@ md-list-item > button {
   }
 
   md-sidenav  md-list {
-    padding: 0px 0px 8px 0px;
+    padding: 0 0 8px 0;
   }
 
 
@@ -111,14 +110,13 @@ md-toolbar h1 {
   border-radius: 50%;
   display: inline-block;
   overflow: hidden;
-  margin: 0px;
+  margin: 0;
   vertical-align: middle;
   zoom:0.70;
   transform: translateZ(0);
   -webkit-transform: scale(0.70);
   -moz-transform:scale(0.70);
 }
-
 
 md-bottom-sheet  md-icon {
   margin-right:20px;
