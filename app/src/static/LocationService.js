@@ -239,8 +239,8 @@
         wed_open: '0730', wed_close: '1800',
         thu_open: '0730', thu_close: '1800',
         fri_open: '0730', fri_close: '1630',
-        sat_open: 'Closed', sat_close: 'Closed',
-        sun_open: 'Closed', sun_close: 'Closed'
+        sat_open: '0730', sat_close: '1630',
+        sun_open: '0730', sun_close: '1630'
       },
       {
         name: 'Fairhaven Commons',
@@ -254,7 +254,7 @@
         thu_open: 'Closed', thu_close: 'Closed',
         fri_open: 'Closed', fri_close: 'Closed',
         sat_open: '1030', sat_close: '1030',
-        sun_open: '1330', sun_close: '1330'
+        sun_open: '1330', sun_close: '1430'
       },
       {
         name: 'Fairhaven Commons',
@@ -267,8 +267,8 @@
         wed_open: '0730', wed_close: '1800',
         thu_open: '0730', thu_close: '1800',
         fri_open: '0730', fri_close: '1630',
-        sat_open: 'Closed', sat_close: 'Closed',
-        sun_open: 'Closed', sun_close: 'Closed'
+        sat_open: '0730', sat_close: '1630',
+        sun_open: '0730', sun_close: '1630'
       },
       {
         name: 'Fairhaven Commons',
@@ -281,8 +281,8 @@
         wed_open: '0730', wed_close: '1800',
         thu_open: '0730', thu_close: '1800',
         fri_open: '0730', fri_close: '1630',
-        sat_open: 'Closed', sat_close: 'Closed',
-        sun_open: 'Closed', sun_close: 'Closed'
+        sat_open: '0730', sat_close: '1630',
+        sun_open: '0730', sun_close: '1630'
       },
       {
         name: 'Fairhaven Commons',
@@ -295,8 +295,8 @@
         wed_open: '0730', wed_close: '1800',
         thu_open: '0730', thu_close: '1800',
         fri_open: '0730', fri_close: '1630',
-        sat_open: 'Closed', sat_close: 'Closed',
-        sun_open: 'Closed', sun_close: 'Closed'
+        sat_open: '0730', sat_close: '1630',
+        sun_open: '0730', sun_close: '1630'
       },
       {
         name: 'Ridgeway Commons',

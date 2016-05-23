@@ -58,29 +58,57 @@
         }
     }
 
-    function startTimer ( elem, ind , listLength, category){
-
+    function startTimer ( elem, index , listLength, cat) {
+        category = cat;
+        ind = index;
         /** Collapses all list items when another is selected */
         hideAllElements(listLength, category);
 
-        var weekday=new Array(7);
-        weekday[0]="mon";
-        weekday[1]="tue";
-        weekday[2]="wed";
-        weekday[3]="thu";
-        weekday[4]="fri";
-        weekday[5]="sat";
-        weekday[6]="sun";
+        var weekday = new Array(7);
+        weekday[0] = "mon";
+        weekday[1] = "tue";
+        weekday[2] = "wed";
+        weekday[3] = "thu";
+        weekday[4] = "fri";
+        weekday[5] = "sat";
+        weekday[6] = "sun";
 
-        var dayStr = weekday[now.getDay()];
-        var openingHour = elem[dayStr + "_open"].slice(0, 2);
-        var closingHour = elem[dayStr + "_close"].slice(0, 2);
-        var closingMinute = elem[dayStr + "_close"].slice(2, 4);
-        var currentHour = now.getHours();
-        var currentMinute = now.getMinutes();
+        dayStr = weekday[now.getDay()];
+        openingHour = elem[dayStr + "_open"].slice(0, 2);
+        closingHour = elem[dayStr + "_close"].slice(0, 2);
+        closingMinute = elem[dayStr + "_close"].slice(2, 4);
+        currentHour = now.getHours();
+        currentMinute = now.getMinutes();
 
-        var hoursRemaining;
-        var minutesRemaining;
+        hoursRemaining;
+        minutesRemaining;
+
+        /** Handle collapsing an item if it is open and then selected again */
+        var id = 'timeleft' + category + '-' + ind;
+        if(prevInd == ind) {
+            document.getElementById(id).innerHTML = "";
+            prevInd = -1;
+        } else {
+            prevInd = ind;
+            ticker = setInterval(tick, 100);
+        }
+
+        ///** Converts milliseconds to seconds */
+       //ticker = setInterval(tick, 100);
+
+    }
+
+    function tick() {
+
+        now = new Date();
+        // if (secondsRemaining > 0) {
+        //     secondsRemaining--;
+        // } else {
+        //     clearInterval(ticker); // stop counting at zero
+        // }
+        currentSecond = now.getSeconds();
+        currentHour = now.getHours();
+        currentMinute = now.getMinutes();
 
         /** Find number of hours remaining, or 0 if the location is closed
          *  TODO: Round so that negative numbers become 0 to eliminate the loop below
@@ -99,46 +127,37 @@
             minutesRemaining = closingMinute - currentMinute;
         }
 
+        var secondsRemaining = parseInt((hoursRemaining * 60 * 60) +
+        /** Converts milliseconds to seconds */ (minutesRemaining * 60));
 
-        /** Converts milliseconds to seconds */
-        var secondsRemaining = parseInt((hoursRemaining * 60 * 60) + (minutesRemaining * 60));
-
-
-        /** TODO: Move things into tick() */
-        ticker = setInterval("tick()",1000);
-        if (secondsRemaining > 0) {
-            secondsRemaining--;
-        } else {
-            clearInterval(ticker); // stop counting at zero
-        }
 
 
         var hours = Math.floor(secondsRemaining/3600);
         secondsRemaining %= 3600;
-        var mins = Math.floor(secondsRemaining/60);
-        secondsRemaining %= 60;
+        console.log(" seconds remaining " + secondsRemaining);
+        var minutes = Math.floor(secondsRemaining/60);
+        secondsRemaining %= 60
+
+        console.log(secondsRemaining);
+        if(secondsRemaining == 0) {
+            clearInterval(ticker);
+            return;
+        }
 
         var result = '';
+        var id = 'timeleft' + category + '-' + ind;
         if((currentHour == closingHour && currentMinute > closingMinute) || currentHour > closingHour || currentHour < openingHour) {
-            document.getElementById('timeleft' + category + '-' + ind).innerHTML = "Closed";
-            //document.getElementById('timeleft-' + ind).innerHTML = message;
+            document.getElementById(id).innerHTML = "Closed";
+            document.getElementById(id).style.color = "#CC2D30";
         } else if (hours < 1) {
-            result += ( (mins < 10) ? "0" : "" ) + mins + " minutes ";
-            document.getElementById('timeleft' + category + '-' + ind).innerHTML = "Closes in: " + result;
-            //document.getElementById('timeleft-' + ind + 'msg').innerHTML = message;
+            result += ( (minutes < 10) ? "0" : "" ) + minutes + " minutes ";
+            document.getElementById(id).innerHTML = "Closes in: " + result;
+            document.getElementById(id).style.color = "#FFC61E";
         } else {
-            result += ((hours < 10 ) ? "0" : "" ) + hours + " hours " + ( (mins < 10) ? "0" : "" ) + mins + " minutes ";
-            document.getElementById('timeleft' + category + '-' + ind).innerHTML = "Closes in: " + result;
-            //document.getElementById('timeleft-' + ind + 'msg').innerHTML = message;
+            result += ((hours < 10 ) ? "0" : "" ) + hours + " hours " + ( (minutes < 10) ? "0" : "" ) + minutes + " minutes ";
+            document.getElementById(id).innerHTML = "Closes in: " + result;
         }
 
-        /** Handle collapsing an item if it is open and then selected again */
-        if(prevInd == ind) {
-            document.getElementById('timeleft' + category + '-' + ind).innerHTML = "";
-            prevInd = -1;
-        } else {
-            prevInd = ind;
-        }
     }
 
     /**

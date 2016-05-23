@@ -20,8 +20,20 @@
             var status;
             var ind;
             var prevInd = -1;
-            showRetail = true;
-            //window.onload = $scope.showRetail;
+            var showRetail = true;
+
+            var dayStr;
+            var openingHour;
+            var closingHour;
+            var closingMinute;
+            var currentHour;
+            var currentMinute;
+            var hoursRemaining;
+            var minutesRemaining;
+            var currentSecond;
+
+            var ind;
+            var category;
 
         </script>
 
@@ -46,6 +58,7 @@
         </md-button>
         <h1>WWU Hours</h1>
     </md-toolbar>
+
     <div flex layout="row" ng-init="showRetail=true">
         <md-sidenav md-component-id="left"  ng-click="ul.toggleList()" md-is-locked-open="$mdMedia('gt-sm')">
             <md-list>
@@ -93,7 +106,9 @@
             </md-list>
         </md-content>
     </div>
+<p id="demo"></p>
 
+<button onclick="clearInterval(myVar)">Stop time</button>
     <script src="../node_modules/angular/angular.js"></script>
     <script src="../node_modules/angular-animate/angular-animate.js"></script>
     <script src="../node_modules/angular-aria/angular-aria.js"></script>
@@ -102,7 +117,13 @@
     <script src="./src/static/Location.js"></script>
     <script src="./src/static/LocationController.js"></script>
     <script src="./src/static/LocationService.js"></script>
-
+<script>
+var myVar = setInterval(myTimer, 1000);
+function myTimer() {
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}
+</script>
     <script type="text/javascript">
 
           angular

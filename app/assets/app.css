@@ -28,8 +28,13 @@ md-list-item > button {
   text-align:left !important;
 }
 
-  md-list .md-button.selected {
-    color: #03a9f4;
+  md-list .md-button.selected strong {
+    color: #03A9f4;
+  }
+
+  md-list .md-button.selected p {
+    color: #006B3F;
+    font-size: large;
   }
 
   md-sidenav  md-list {
