@@ -39,8 +39,17 @@ md-list-item > button {
 
   md-sidenav  md-list {
     padding: 0 0 8px 0;
+    color: white;
   }
 
+  md-sidenav{
+    background-color: #2e2e2e;
+  }
+
+  md-sidenav md-list{
+    background-color: #232323;
+    margin: 10px 10px 10px 0;
+  }
 
 /* Primary content area */
 
@@ -70,9 +79,9 @@ md-list-item > button {
 }
 
 #content .md-button.share > md-icon {
-  fill:black;
-  width:36px;
-  height:36px;
+  fill: black;
+  width: 36px;
+  height: 36px;
 }
 
 md-button.menuBtn > md-icon {
@@ -100,11 +109,10 @@ md-button.menuBtn > md-icon {
   position: relative;
 }
 
-/* Typography support coming in 0.8.0 */
-
 md-toolbar h1 {
   font-size: 1.250em;
   font-weight: 400;
+  color: white;
 }
 
 .avatar {

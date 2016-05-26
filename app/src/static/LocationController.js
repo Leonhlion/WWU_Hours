@@ -61,6 +61,7 @@
     function startTimer ( elem, index , listLength, cat) {
         category = cat;
         ind = index;
+
         /** Collapses all list items when another is selected */
         hideAllElements(listLength, category);
 
@@ -83,7 +84,7 @@
         hoursRemaining;
         minutesRemaining;
 
-        /** Handle collapsing an item if it is open and then selected again */
+        /** Handle collapsing an item if it is open and then selected again 
         var id = 'timeleft' + category + '-' + ind;
         if(prevInd == ind) {
             document.getElementById(id).innerHTML = "";
@@ -92,14 +93,14 @@
             prevInd = ind;
             ticker = setInterval(tick, 100);
         }
-
-        ///** Converts milliseconds to seconds */
-       //ticker = setInterval(tick, 100);
+*/
+       /** Converts milliseconds to seconds */
+       ticker = setInterval(tick, 100);
 
     }
 
     function tick() {
-
+        console.log("ticking");
         now = new Date();
         // if (secondsRemaining > 0) {
         //     secondsRemaining--;
@@ -111,7 +112,7 @@
         currentMinute = now.getMinutes();
 
         /** Find number of hours remaining, or 0 if the location is closed
-         *  TODO: Round so that negative numbers become 0 to eliminate the loop below
+         *  TODO: Round so that negative numbers become 0 to eliminate the statements below
          */
         if (currentHour >= openingHour && currentHour <= closingHour) {
             hoursRemaining = closingHour - currentHour;
@@ -127,21 +128,18 @@
             minutesRemaining = closingMinute - currentMinute;
         }
 
-        var secondsRemaining = parseInt((hoursRemaining * 60 * 60) +
-        /** Converts milliseconds to seconds */ (minutesRemaining * 60));
-
-
+        /** Converts milliseconds to seconds */
+        var secondsRemaining = (hoursRemaining * 60 * 60) + (minutesRemaining * 60);
 
         var hours = Math.floor(secondsRemaining/3600);
         secondsRemaining %= 3600;
-        console.log(" seconds remaining " + secondsRemaining);
-        var minutes = Math.floor(secondsRemaining/60);
-        secondsRemaining %= 60
 
-        console.log(secondsRemaining);
+        var minutes = Math.floor(secondsRemaining/60);
+        secondsRemaining %= 60;
+
+        /** Stop ticking if the location is closed */
         if(secondsRemaining == 0) {
             clearInterval(ticker);
-            return;
         }
 
         var result = '';

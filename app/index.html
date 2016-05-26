@@ -11,31 +11,7 @@
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
         <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css"/>
 
-        <script>
-            var somethingActive = false;
-            var now = new Date();
-            var time = now.getTime() / 1000;  // time now in milliseconds
-            var timeInSeconds;
-            var ticker;
-            var status;
-            var ind;
-            var prevInd = -1;
-            var showRetail = true;
-
-            var dayStr;
-            var openingHour;
-            var closingHour;
-            var closingMinute;
-            var currentHour;
-            var currentMinute;
-            var hoursRemaining;
-            var minutesRemaining;
-            var currentSecond;
-
-            var ind;
-            var category;
-
-        </script>
+        <script src="../app/Variables.js"></script>
 
         <link rel="stylesheet" href="assets/app.css"/>
 
@@ -106,9 +82,7 @@
             </md-list>
         </md-content>
     </div>
-<p id="demo"></p>
 
-<button onclick="clearInterval(myVar)">Stop time</button>
     <script src="../node_modules/angular/angular.js"></script>
     <script src="../node_modules/angular-animate/angular-animate.js"></script>
     <script src="../node_modules/angular-aria/angular-aria.js"></script>
@@ -117,13 +91,7 @@
     <script src="./src/static/Location.js"></script>
     <script src="./src/static/LocationController.js"></script>
     <script src="./src/static/LocationService.js"></script>
-<script>
-var myVar = setInterval(myTimer, 1000);
-function myTimer() {
-    var d = new Date();
-    document.getElementById("demo").innerHTML = d.toLocaleTimeString();
-}
-</script>
+
     <script type="text/javascript">
 
           angular
