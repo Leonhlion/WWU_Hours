@@ -165,7 +165,7 @@
     }
 
     /**
-     * Show the Contact view in the bottom sheet
+     * Show the Contact view in the bottom sheet. Not currently used.
      */
     function makeContact(selectedLocation) {
 

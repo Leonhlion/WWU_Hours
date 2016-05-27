@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<p>fhbsfbskjdbfkjsdbkjfbsdk</p>
+<body ng-app="starterApp" layout="row" ng-controller="LocationController as ul" ng-cloak>
+    <md-toolbar layout="row">
+        <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show Location List">
+            <md-icon md-svg-icon="menu" ></md-icon>
+        </md-button>
+        <img src="westernlogo_white_med.png"></img>
+    </md-toolbar>
+
 </body>
 </html>

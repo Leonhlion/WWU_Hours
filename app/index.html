@@ -32,6 +32,9 @@
         var minutesRemaining;
         var currentSecond;
 
+        var lastKnownIndex = 0;
+        var lastKnownCategory = " ";
+
         var ind;
         var category;
         </script>
@@ -50,15 +53,11 @@
 
     <body ng-app="starterApp" layout="column" ng-controller="LocationController as ul" ng-cloak>
     <div appheader></div>
-    <md-toolbar layout="row">
-        <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show Location List">
-            <md-icon md-svg-icon="menu" ></md-icon>
-        </md-button>
-        <h1>WWU Hours</h1>
-    </md-toolbar>
 
     <div flex layout="row" ng-init="showRetail=true">
         <md-sidenav md-component-id="left"  ng-click="ul.toggleList()" md-is-locked-open="$mdMedia('gt-sm')">
+            <h1>Category</h1>
+            <hr style="width: 100%;">
             <md-list>
                 <md-list-item>
                     <md-button ng-click="showRetail=true; showDining=false; showAcademic=false; showRec=false">Retail</md-button>
@@ -76,7 +75,9 @@
 
         </md-sidenav>
 
+
         <md-content flex >
+
             <md-list ng-show="showRetail">
                 <md-list-item ng-repeat="it in ul.location | filter: { category: 'Retail' } as T" >
                     <md-button id='{{it.abbreviation}}' ng-click="ul.startTimer(it, $index, T.length, 'Retail'); ul.selectLocation(it)" ng-class="{'selected' : it === ul.selected }">

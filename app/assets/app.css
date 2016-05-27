@@ -6,21 +6,17 @@ html, body {
   padding: 0;
 }
 
-/* Toolbar area */
-
-.menu {
-  background-color: transparent;
-  border: none;
-  height: 38px;
-  margin: 16px;
-  width: 36px;
+hr {
+    width: auto;
+    margin: 0 10px; /* This leaves 10px margin on left and right. If only right margin is needed try margin-right: 10px; */
 }
 
-md-toolbar h3 {
-  margin: auto;
-  font-weight: 500;
+h1{
+  color:white;
+  line-height: 1px;
+  margin-left: 10px;
+  margin-top: 40px;
 }
-
 /* Side nav area */
 
 md-list-item > button {
@@ -107,12 +103,6 @@ md-button.menuBtn > md-icon {
 
 .content-wrapper {
   position: relative;
-}
-
-md-toolbar h1 {
-  font-size: 1.250em;
-  font-weight: 400;
-  color: white;
 }
 
 .avatar {
