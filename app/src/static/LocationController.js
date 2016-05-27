@@ -2,6 +2,11 @@
 
   angular
        .module('static')
+        .directive('appheader', function() {
+            return {
+                templateUrl: './header.html'
+            }
+        })
        .controller('LocationController', [
           'locationService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log',
           LocationController
@@ -93,20 +98,21 @@
             prevInd = ind;
             ticker = setInterval(tick, 100);
         }
-*/
-       /** Converts milliseconds to seconds */
-       ticker = setInterval(tick, 100);
+         */
 
+       /** Converts milliseconds to seconds */
+        var id = 'timeleft' + category + '-' + ind;
+        if(openingHour == "Cl") {
+            document.getElementById(id).innerHTML = "Closed";
+            document.getElementById(id).style.color = "#CC2D30";
+        } else {
+           ticker = setInterval(tick, 100);
+        }
     }
 
     function tick() {
-        console.log("ticking");
+        console.log(openingHour);
         now = new Date();
-        // if (secondsRemaining > 0) {
-        //     secondsRemaining--;
-        // } else {
-        //     clearInterval(ticker); // stop counting at zero
-        // }
         currentSecond = now.getSeconds();
         currentHour = now.getHours();
         currentMinute = now.getMinutes();
@@ -119,7 +125,7 @@
         } else {
             hoursRemaining = 0;
         }
-
+        //console.log(minutesRemaining);
         /** Find minutes remaining */
         if (currentMinute >= closingMinute) {
             minutesRemaining = (60 - (currentMinute - closingMinute));

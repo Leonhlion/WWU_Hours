@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" >
     <head>
-        <title>Angular Material - Starter App</title>
+        <title>Campus Hours</title>
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +11,30 @@
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
         <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css"/>
 
-        <script src="../app/Variables.js"></script>
+        <script>
+        var somethingActive = false;
+        var now = new Date();
+        var time = now.getTime() / 1000;  // time now in milliseconds
+        var timeInSeconds;
+        var ticker;
+        var status;
+        var ind;
+        var prevInd = -1;
+        var showRetail = true;
 
+        var dayStr;
+        var openingHour;
+        var closingHour;
+        var closingMinute;
+        var currentHour;
+        var currentMinute;
+        var hoursRemaining;
+        var minutesRemaining;
+        var currentSecond;
+
+        var ind;
+        var category;
+        </script>
         <link rel="stylesheet" href="assets/app.css"/>
 
         <style type="text/css">
@@ -27,7 +49,7 @@
     </head>
 
     <body ng-app="starterApp" layout="column" ng-controller="LocationController as ul" ng-cloak>
-
+    <div appheader></div>
     <md-toolbar layout="row">
         <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show Location List">
             <md-icon md-svg-icon="menu" ></md-icon>
@@ -51,33 +73,40 @@
                     <md-button ng-click="showRec=true; showRetail=false; showDining=false; showAcademic=false">Rec Center</md-button>
                 </md-list-item>
             </md-list>
+
         </md-sidenav>
 
         <md-content flex >
             <md-list ng-show="showRetail">
-                <md-list-item ng-repeat="it in ul.location | filter: { category: 'Retail' } as L" >
-                    <md-button id='{{it.abbreviation}}' ng-click="ul.startTimer(it, $index, L.length, 'Retail'); ul.selectLocation(it)" ng-class="{'selected' : it === ul.selected }">
+                <md-list-item ng-repeat="it in ul.location | filter: { category: 'Retail' } as T" >
+                    <md-button id='{{it.abbreviation}}' ng-click="ul.startTimer(it, $index, T.length, 'Retail'); ul.selectLocation(it)" ng-class="{'selected' : it === ul.selected }">
                         <strong>{{it.name}}</strong>
                         <p id="timeleftRetail-{{$index}}"> </p>
                     </md-button>
                 </md-list-item>
             </md-list>
             <md-list ng-show="showDining">
-                <md-list-item ng-repeat="iy in ul.location | filter: { category: 'Dining' } as Y" >
-                    <md-button id='{{iy.abbreviation}}' ng-click="ul.startTimer(iy, $index, Y.length, 'Dining'); ul.selectLocation(iy)" ng-class="{'selected' : iy === ul.selected }">
-                        <strong>{{iy.name}}</strong>
+                <md-list-item ng-repeat="iu in ul.location | filter: { category: 'Dining' } as U" >
+                    <md-button id='{{iu.abbreviation}}' ng-click="ul.startTimer(iu, $index, U.length, 'Dining'); ul.selectLocation(iu)" ng-class="{'selected' : iu === ul.selected }">
+                        <strong>{{iu.name}}</strong>
                         <p id="timeleftDining-{{$index}}"> </p>
                     </md-button>
                 </md-list-item>
             </md-list>
            <md-list ng-show="showAcademic">
-                <md-list-item ng-repeat="it in ul.location | filter: { category: 'Academic' }" >
-
+                <md-list-item ng-repeat="iv in ul.location | filter: { category: 'Academic' } as V" >
+                    <md-button id='{{iv.abbreviation}}' ng-click="ul.startTimer(iv, $index, V.length, 'Academic'); ul.selectLocation(iv)" ng-class="{'selected' : iv === ul.selected }">
+                        <strong>{{iv.name}}</strong>
+                        <p id="timeleftAcademic-{{$index}}"> </p>
+                    </md-button>
                 </md-list-item>
             </md-list>
            <md-list ng-show="showRec">
-                <md-list-item ng-repeat="it in ul.location | filter: { category: 'Rec' }" >
-
+                <md-list-item ng-repeat="iw in ul.location | filter: { category: 'Rec' } as W" >
+                    <md-button id='{{iw.abbreviation}}' ng-click="ul.startTimer(iw, $index, W.length, 'Rec'); ul.selectLocation(iw)" ng-class="{'selected' : iw === ul.selected }">
+                        <strong>{{iw.name}}</strong>
+                        <p id="timeleftRec-{{$index}}"> </p>
+                    </md-button>
                 </md-list-item>
             </md-list>
         </md-content>
