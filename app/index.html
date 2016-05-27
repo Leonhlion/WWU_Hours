@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" >
     <head>
-        <title>Angular Material - Starter App</title>
+        <title>Hours</title>
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
         <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css"/>
 
-        <script src="../app/Variables.js"></script>
+        <script src="../variables.js"></script>
 
         <link rel="stylesheet" href="assets/app.css"/>
 
@@ -28,11 +34,10 @@
 
     <body ng-app="starterApp" layout="column" ng-controller="LocationController as ul" ng-cloak>
 
-    <md-toolbar layout="row">
-        <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show Location List">
-            <md-icon md-svg-icon="menu" ></md-icon>
+    <md-toolbar layout="row" hide-gt-sm layout-align="start center">
+        <md-button class="md-icon-button md-primary" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show Location List">
+            <md-icon md-svg-icon="menu" style="color:white;font:bold;"></md-icon>
         </md-button>
-        <h1>WWU Hours</h1>
     </md-toolbar>
 
     <div flex layout="row" ng-init="showRetail=true">
