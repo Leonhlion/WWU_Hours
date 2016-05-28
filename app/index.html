@@ -60,16 +60,28 @@
             <hr style="width: 100%;">
             <md-list>
                 <md-list-item>
-                    <md-button ng-click="showRetail=true; showDining=false; showAcademic=false; showRec=false" ng-class="{'current' : showRetail}">Retail</md-button>
+                    <md-button ng-click="showRetail=true; showDining=false; showAcademic=false; showRec=false" ng-class="{'current' : showRetail}">
+                        <img class = "navIcon" src = "retail.png" />
+                        Retail
+                    </md-button>
                 </md-list-item>
                 <md-list-item>
-                    <md-button ng-click="showDining=true; showRetail=false; showAcademic=false; showRec=false" ng-class="{'current' : showDining}">Dining</md-button>
+                    <md-button ng-click="showDining=true; showRetail=false; showAcademic=false; showRec=false" ng-class="{'current' : showDining}">
+                        <img class = "navIcon" src = "dining.png" />
+                        Dining
+                    </md-button>
                 </md-list-item>
                 <md-list-item>
-                    <md-button ng-click="showAcademic=true; showRetail=false; showDining=false; showRec=false" ng-class="{'current' : showAcademic}">Academic</md-button>
+                    <md-button ng-click="showAcademic=true; showRetail=false; showDining=false; showRec=false" ng-class="{'current' : showAcademic}">
+                        <img class = "navIcon" src = "Academic.png" />
+                        Academic
+                    </md-button>
                 </md-list-item>
                 <md-list-item>
-                    <md-button ng-click="showRec=true; showRetail=false; showDining=false; showAcademic=false" ng-class="{'current' : showRec}">Rec Center</md-button>
+                    <md-button ng-click="showRec=true; showRetail=false; showDining=false; showAcademic=false" ng-class="{'current' : showRec}">
+                        <img class = "navIcon" src = "rec.png" />
+                        Rec Center
+                    </md-button>
                 </md-list-item>
             </md-list>
 
@@ -79,8 +91,9 @@
         <md-content flex >
 
             <md-list ng-show="showRetail">
-                <h1 class="subtitle">Retail Hours
+                <h1 class="subtitle">
                 <img class = "icon" src = "retail.png" />
+                    Retail Hours
                 </h1>
                 <hr>
                 <md-list-item ng-repeat="it in ul.location | filter: { category: 'Retail' } as T" >
@@ -91,8 +104,9 @@
                 </md-list-item>
             </md-list>
             <md-list ng-show="showDining">
-                <h1 class="subtitle">Dining Hours
+                <h1 class="subtitle">
                 <img class = "icon" src = "dining.png" />
+                    Dining Hours
                 </h1>
                 <hr>
                 <md-list-item ng-repeat="iu in ul.location | filter: { category: 'Dining' } as U" >
@@ -103,8 +117,9 @@
                 </md-list-item>
             </md-list>
            <md-list ng-show="showAcademic">
-                <h1 class="subtitle">Academic Hours
+                <h1 class="subtitle">
                 <img class = "icon" src = "academic.png" />
+                    Academic Hours
                 </h1>
                 <hr>
                 <md-list-item ng-repeat="iv in ul.location | filter: { category: 'Academic' } as V" >
@@ -115,8 +130,9 @@
                 </md-list-item>
             </md-list>
            <md-list ng-show="showRec">
-               <h1 class="subtitle"> Rec Center Hours
+               <h1 class="subtitle">
                <img class = "icon" src = "rec.png" />
+                   Rec Center Hours
                </h1>
                 <hr>
                 <md-list-item ng-repeat="iw in ul.location | filter: { category: 'Rec' } as W" >
