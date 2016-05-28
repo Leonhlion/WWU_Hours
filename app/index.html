@@ -79,6 +79,8 @@
         <md-content flex >
 
             <md-list ng-show="showRetail">
+                <h1 class="subtitle">Retail Hours</h1>
+                <hr>
                 <md-list-item ng-repeat="it in ul.location | filter: { category: 'Retail' } as T" >
                     <md-button id="button-{{$index}}" id='{{it.abbreviation}}' ng-click="ul.startTimer(it, $index, T.length, 'Retail'); ul.selectLocation(it)" ng-class="{'selected' : it === ul.selected }">
                         <strong>{{it.name}}</strong>
@@ -87,6 +89,8 @@
                 </md-list-item>
             </md-list>
             <md-list ng-show="showDining">
+                <h1 class="subtitle">Dining Hours</h1>
+                <hr>
                 <md-list-item ng-repeat="iu in ul.location | filter: { category: 'Dining' } as U" >
                     <md-button id='{{iu.abbreviation}}' ng-click="ul.startTimer(iu, $index, U.length, 'Dining'); ul.selectLocation(iu)" ng-class="{'selected' : iu === ul.selected }">
                         <strong>{{iu.name}}</strong>
@@ -95,6 +99,8 @@
                 </md-list-item>
             </md-list>
            <md-list ng-show="showAcademic">
+                <h1 class="subtitle">Academic Hours</h1>
+                <hr>
                 <md-list-item ng-repeat="iv in ul.location | filter: { category: 'Academic' } as V" >
                     <md-button id='{{iv.abbreviation}}' ng-click="ul.startTimer(iv, $index, V.length, 'Academic'); ul.selectLocation(iv)" ng-class="{'selected' : iv === ul.selected }">
                         <strong>{{iv.name}}</strong>
@@ -103,6 +109,8 @@
                 </md-list-item>
             </md-list>
            <md-list ng-show="showRec">
+               <h1 class="subtitle"> Rec Center Hours</h1>
+                <hr>
                 <md-list-item ng-repeat="iw in ul.location | filter: { category: 'Rec' } as W" >
                     <md-button id='{{iw.abbreviation}}' ng-click="ul.startTimer(iw, $index, W.length, 'Rec'); ul.selectLocation(iw)" ng-class="{'selected' : iw === ul.selected }">
                         <strong>{{iw.name}}</strong>

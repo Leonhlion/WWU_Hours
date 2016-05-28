@@ -8,6 +8,7 @@ html, body {
 
 hr {
     width: auto;
+    line-height: 1px;
     margin: 0 10px; /* This leaves 10px margin on left and right. If only right margin is needed try margin-right: 10px; */
 }
 
@@ -39,7 +40,6 @@ md-list-item > button {
   }
 
   .current {
-    padding: 0 0 8px 0;
     color: #03A9f4;
   }
 
@@ -83,6 +83,15 @@ md-list-item > button {
   fill: black;
   width: 36px;
   height: 36px;
+}
+
+md-button:active {
+  color: red;
+}
+
+.subtitle {
+  color: black;
+  text-align: center;
 }
 
 md-button.menuBtn > md-icon {

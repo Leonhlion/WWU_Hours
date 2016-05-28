@@ -62,7 +62,8 @@
             }
         }
     }
-
+      
+      
     function startTimer ( elem, index , listLength, cat) {
         category = cat;
         ind = index;
