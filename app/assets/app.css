@@ -38,6 +38,11 @@ md-list-item > button {
     color: white;
   }
 
+  .current {
+    padding: 0 0 8px 0;
+    color: #03A9f4;
+  }
+
   md-sidenav{
     background-color: #2e2e2e;
   }

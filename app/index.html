@@ -60,16 +60,16 @@
             <hr style="width: 100%;">
             <md-list>
                 <md-list-item>
-                    <md-button ng-click="showRetail=true; showDining=false; showAcademic=false; showRec=false">Retail</md-button>
+                    <md-button ng-click="showRetail=true; showDining=false; showAcademic=false; showRec=false" ng-class="{'current' : showRetail}">Retail</md-button>
                 </md-list-item>
                 <md-list-item>
-                    <md-button ng-click="showDining=true; showRetail=false; showAcademic=false; showRec=false">Dining</md-button>
+                    <md-button ng-click="showDining=true; showRetail=false; showAcademic=false; showRec=false;" ng-class="{'current' : showDining}">Dining</md-button>
                 </md-list-item>
                 <md-list-item>
-                    <md-button ng-click="showAcademic=true; showRetail=false; showDining=false; showRec=false">Academic</md-button>
+                    <md-button ng-click="showAcademic=true; showRetail=false; showDining=false; showRec=false" ng-class="{'current' : showAcademic}">Academic</md-button>
                 </md-list-item>
                 <md-list-item>
-                    <md-button ng-click="showRec=true; showRetail=false; showDining=false; showAcademic=false">Rec Center</md-button>
+                    <md-button ng-click="showRec=true; showRetail=false; showDining=false; showAcademic=false" ng-class="{'current' : showRec}">Rec Center</md-button>
                 </md-list-item>
             </md-list>
 
