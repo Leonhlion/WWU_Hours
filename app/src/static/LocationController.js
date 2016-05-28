@@ -71,15 +71,16 @@
         hideAllElements(listLength, category);
 
         var weekday = new Array(7);
-        weekday[0] = "mon";
-        weekday[1] = "tue";
-        weekday[2] = "wed";
-        weekday[3] = "thu";
-        weekday[4] = "fri";
-        weekday[5] = "sat";
-        weekday[6] = "sun";
+        weekday[0] = "sun";
+        weekday[1] = "mon";
+        weekday[2] = "tue";
+        weekday[3] = "wed";
+        weekday[4] = "thu";
+        weekday[5] = "fri";
+        weekday[6] = "sat";
 
         dayStr = weekday[now.getDay()];
+        console.log(dayStr);
         openingHour = elem[dayStr + "_open"].slice(0, 2);
         closingHour = elem[dayStr + "_close"].slice(0, 2);
         closingMinute = elem[dayStr + "_close"].slice(2, 4);
@@ -106,12 +107,12 @@
             document.getElementById(id).innerHTML = "Closed";
             document.getElementById(id).style.color = "#CC2D30";
         } else {
+            
            ticker = setInterval(tick, 100);
         }
     }
 
     function tick() {
-        console.log(openingHour);
         now = new Date();
         currentSecond = now.getSeconds();
         currentHour = now.getHours();
@@ -161,6 +162,7 @@
             result += ((hours < 10 ) ? "0" : "" ) + hours + " hours " + ( (minutes < 10) ? "0" : "" ) + minutes + " minutes ";
             document.getElementById(id).innerHTML = "Closes in: " + result;
         }
+
 
     }
 

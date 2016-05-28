@@ -18,5 +18,8 @@ var hoursRemaining;
 var minutesRemaining;
 var currentSecond;
 
+var lastKnownIndex = 0;
+var lastKnownCategory = " ";
+
 var ind;
 var category;
